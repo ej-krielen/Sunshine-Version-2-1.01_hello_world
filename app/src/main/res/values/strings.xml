@@ -8,5 +8,6 @@
     <!-- Menus-->
     <string name="action_settings">Settings</string>
     <string name="action_refresh" translatble="false">Refresh</string>
+    <string name="title_activity_detail">DetailActivity</string>
 
 </resources>
