@@ -70,14 +70,18 @@ public class ForecastFragment extends Fragment {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_refresh) {
-            SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
-            String userLocation = sharedPref.getString(getString(R.string.pref_location_key), getString(R.string.pref_location_default));
-            FetchWeatherTask weatherTask = new FetchWeatherTask();
-            weatherTask.execute(userLocation);
+            updateWeather();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void updateWeather() {
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String userLocation = sharedPref.getString(getString(R.string.pref_location_key), getString(R.string.pref_location_default));
+        FetchWeatherTask weatherTask = new FetchWeatherTask();
+        weatherTask.execute(userLocation);
     }
 
     @Override
